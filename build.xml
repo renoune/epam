@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<project name="test" default="run" basedir=".">
+  <path id="cpath">
+    <pathelement location="build" />
+  </path>
+
+  <target name="init" >
+    <mkdir dir="build" />
+  </target>
+
+  <target name="compile" depends="init" >
+    <javac fork="true" debug="true" srcdir="src" destdir="build" classpathref="cpath" />
+  </target>
+
+  <target name="run" depends="compile">
+    <java fork="true" classname="test" classpathref="cpath" failonerror="true" />
+  </target>
+
+  <target name="clean">
+    <delete dir="build" />
+  </target>
+
+</project>
